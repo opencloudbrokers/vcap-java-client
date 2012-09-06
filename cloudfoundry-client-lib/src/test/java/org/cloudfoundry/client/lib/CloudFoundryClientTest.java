@@ -81,7 +81,8 @@ public class CloudFoundryClientTest extends AbstractCloudFoundryClientTest {
 	private CloudFoundryClient client;
 
 	// Pass -Dvcap.target=http://api.cloudfoundry.com, vcap.me, or your own cloud
-	private static final String ccUrl = System.getProperty("vcap.target", "https://api.cloudfoundry.com");
+	private static final String ccUrl = System.getProperty("vcap.target", "http://api.fakecloud");
+//	private static final String ccUrl = System.getProperty("vcap.target", "http://api.cloudfoundry.com");
 
 	private static final String TEST_USER_EMAIL = System.getProperty("vcap.email", "java-client-test-user@vmware.com");
 

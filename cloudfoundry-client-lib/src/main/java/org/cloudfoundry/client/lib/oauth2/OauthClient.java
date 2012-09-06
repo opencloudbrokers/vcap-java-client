@@ -17,6 +17,7 @@
 package org.cloudfoundry.client.lib.oauth2;
 
 import org.cloudfoundry.client.lib.CloudFoundryException;
+import org.cloudfoundry.client.lib.util.CloudFoundryHostCommonsHttpRequestFactory;
 import org.cloudfoundry.client.lib.util.CloudUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.CommonsClientHttpRequestFactory;
@@ -50,7 +51,7 @@ public class OauthClient {
 	public OauthClient(URL authorizationUrl) {
 		this.authorizationUrl = authorizationUrl;
 		this.restTemplate = new RestTemplate();
-		this.restTemplate.setRequestFactory(new CommonsClientHttpRequestFactory());
+		this.restTemplate.setRequestFactory(new CloudFoundryHostCommonsHttpRequestFactory());
 	}
 
 	public OAuth2AccessToken getToken(String username, String password) {

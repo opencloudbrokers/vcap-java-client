@@ -19,6 +19,7 @@ package org.cloudfoundry.client.lib.rest;
 import org.cloudfoundry.client.lib.CloudCredentials;
 import org.cloudfoundry.client.lib.CloudFoundryException;
 import org.cloudfoundry.client.lib.domain.CloudSpace;
+import org.cloudfoundry.client.lib.util.CloudFoundryHostCommonsHttpRequestFactory;
 import org.cloudfoundry.client.lib.util.CloudUtil;
 import org.cloudfoundry.client.lib.util.UploadApplicationPayloadHttpMessageConverter;
 import org.cloudfoundry.client.lib.domain.UploadApplicationPayload;
@@ -96,7 +97,7 @@ public abstract class AbstractCloudControllerClient implements CloudControllerCl
 		this.cloudControllerUrl = cloudControllerUrl;
 		this.authorizationEndpoint = authorizationEndpoint;
 		this.restTemplate.setRequestFactory(
-				new CloudFoundryClientHttpRequestFactory(new CommonsClientHttpRequestFactory()));
+				new CloudFoundryClientHttpRequestFactory(new CloudFoundryHostCommonsHttpRequestFactory()));
 		this.restTemplate.setErrorHandler(new ErrorHandler());
 		this.restTemplate.setMessageConverters(getHttpMessageConverters());
 	}

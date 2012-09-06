@@ -18,6 +18,7 @@ package org.cloudfoundry.client.lib.rest;
 
 import org.cloudfoundry.client.lib.CloudCredentials;
 import org.cloudfoundry.client.lib.domain.CloudSpace;
+import org.cloudfoundry.client.lib.util.CloudFoundryHostCommonsHttpRequestFactory;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.http.client.CommonsClientHttpRequestFactory;
@@ -45,7 +46,7 @@ public class CloudControllerClientFactory {
 
 	public CloudControllerClientFactory() {
 		this.restTemplate = new RestTemplate();
-		this.restTemplate.setRequestFactory(new CommonsClientHttpRequestFactory());
+		this.restTemplate.setRequestFactory(new CloudFoundryHostCommonsHttpRequestFactory());
 		this.objectMapper = new ObjectMapper();
 	}
 
