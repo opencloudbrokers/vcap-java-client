@@ -59,7 +59,7 @@ public class UploadApplicationPayloadHttpMessageConverter implements HttpMessage
         HttpMessageNotWritableException {
         HttpHeaders headers = outputMessage.getHeaders();
         if (contentType == null || contentType.isWildcardType() || contentType.isWildcardSubtype()) {
-            contentType = MediaType.APPLICATION_OCTET_STREAM;
+            contentType = APPLICATION_ZIP;
         }
         if (contentType != null) {
             headers.setContentType(contentType);
@@ -67,5 +67,5 @@ public class UploadApplicationPayloadHttpMessageConverter implements HttpMessage
         FileCopyUtils.copy(t.getInputStream(), outputMessage.getBody());
         outputMessage.getBody().flush();
     }
-
+    static MediaType APPLICATION_ZIP = new MediaType("application/zip");
 }
