@@ -67,5 +67,5 @@ public class UploadApplicationPayloadHttpMessageConverter implements HttpMessage
         FileCopyUtils.copy(t.getInputStream(), outputMessage.getBody());
         outputMessage.getBody().flush();
     }
-    static MediaType APPLICATION_ZIP = new MediaType("application/zip");
+    static MediaType APPLICATION_ZIP = new MediaType("application", "zip");
 }
